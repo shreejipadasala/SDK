@@ -1,73 +1,116 @@
-#SDK-
-# DataViz Pro - Automated Data Visualization Tool
+# 📊 SDK - DataViz Pro
 
 **DataViz Pro** is a web-based tool that automates data visualization using a Django backend and React frontend. It allows users to upload CSV/JSON files, analyze the data, and generate insightful graphs automatically.
 
+---
+
 ## 🔧 Features
 
-- 📁 Upload CSV or JSON data files
+- 📁 Upload CSV or JSON data files  
 - 📊 Auto-generated graphs using:
-  - Matplotlib
-  - Seaborn
-  - mplfinance (candlestick charts)
-- 📈 Select chart types: bar, line, scatter, histogram, candlestick, etc.
-- 🧠 Bonus: AI-based chart recommendation (coming soon)
-- 🔍 Data filtering and customization
+  - Matplotlib  
+  - Seaborn  
+  - mplfinance (candlestick charts)  
+- 📈 Select chart types: bar, line, scatter, histogram, candlestick, etc.  
+- 🔍 Data filtering and customization  
+- 🧠 AI-based chart recommendation (coming soon)  
 
 ---
-#For Backend
 
-1.Check Python Version
+## ⚙️ Backend Setup (Django)
 
-    python --version
+### 1. Check Python Version
 
-2.Create Virtual Environment
-    python -m venv venv
-    .\venv\Scripts\activate
+```bash
+python --version
+```
 
-3.Install Django
-    pip install django
+### 2. Create Virtual Environment
 
-4.Check Django Version
-    python -m django --version
+```bash
+python -m venv venv
+.env\Scriptsctivate
+```
 
-5.Create Django Project
-    django-admin startproject myproject
-    cd myproject
+### 3. Install Django
 
-6.Run Development Server
-    python manage.py runserver
+```bash
+pip install django
+```
 
-7.Create Django App
-    python manage.py startapp myapp
+### 4. Check Django Version
 
-8.Apply Migrations
-    python manage.py migrate
+```bash
+python -m django --version
+```
 
-10.Create Superuser (Admin Login)
-    python manage.py createsuperuser
+### 5. Create Django Project
 
-11.Run Server Again
-    python manage.py runserver
+```bash
+django-admin startproject myproject
+cd myproject
+```
 
+### 6. Run Development Server
 
+```bash
+python manage.py runserver
+```
 
-#For react
+### 7. Create Django App
 
-1.Create a New React App
-    npx create-react-app my-app
-    cd my-app
+```bash
+python manage.py startapp myapp
+```
 
-2.Start the Development Server
-    npm start
+### 8. Apply Migrations
 
-#supabase database 
+```bash
+python manage.py migrate
+```
 
-1. Install PostgreSQL Support in Django
-    pip install psycopg2-binary
+### 9. Create Superuser
 
-#setting.py  
+```bash
+python manage.py createsuperuser
+```
 
+### 10. Run Server Again
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## ⚛️ Frontend Setup (React)
+
+### 1. Create React App
+
+```bash
+npx create-react-app frontend
+cd frontend
+```
+
+### 2. Start Development Server
+
+```bash
+npm start
+```
+
+---
+
+## 🗃️ Supabase Database Setup
+
+### 1. Install PostgreSQL Support
+
+```bash
+pip install psycopg2-binary
+```
+
+### 2. Configure `settings.py`
+
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -78,20 +121,28 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+```
 
+### 3. Migrate Django Models
 
-3.Migrate Django Models
-    python manage.py makemigrations
-    python manage.py migrate
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
 
-4.python manage.py runserver
+### 4. Run the Server
 
+```bash
+python manage.py runserver
+```
 
+---
 
+## 🐍 Python Requirements
 
-##Python (Backend - Django)
-##Install these Python libraries for data handling, visualization, and API creation:
+Install these Python libraries for data handling, visualization, and API creation:
 
+```bash
 pip install django
 pip install djangorestframework
 pip install pandas
@@ -99,8 +150,13 @@ pip install numpy
 pip install matplotlib
 pip install seaborn
 pip install mplfinance
+```
 
-##requirements.txt
+---
+
+### 📦 `requirements.txt`
+
+```
 Django>=4.2
 djangorestframework>=3.16
 django-cors-headers>=4.2
@@ -109,45 +165,26 @@ numpy==1.26.4
 matplotlib==3.8.3
 seaborn==0.13.2
 mplfinance==0.12.10b0
-##Then install them using:
+```
+
+Install all dependencies:
+
+```bash
 pip install -r requirements.txt
+```
 
-##Dependencies
+---
 
-pandas - Data manipulation
+## 📚 Dependencies
 
-numpy - Numeric computations
-
-matplotlib - Graph plotting
-
-seaborn - Statistical visualization
-
-mplfinance - Financial candlestick charts
-
-djangorestframework - Django APIs
-
-
-
-
-##JavaScript (Frontend - React)
-##When you're in the frontend/ folder, install React and supporting libraries:
-npx create-react-app frontend
-cd frontend
-npm install axios
-npm install recharts
-
-#Summary
-Type	Library	Purpose
-Backend	django	Django framework
-Backend	djangorestframework	API creation
-Backend	pandas	Data manipulation
-Backend	numpy	Numerical operations
-Backend	matplotlib	Plotting basic charts
-Backend	seaborn	Advanced statistical charts
-Backend	mplfinance	Candlestick/finance charts
-Frontend axios	API calls
-Frontend chart.js	Chart library (optional)
-Frontend react-chartjs-2	React wrapper for Chart.js (optional)
-Frontend recharts	Alternative charting lib (optional)
-
-
+| Type     | Library             | Purpose                           |
+|----------|---------------------|-----------------------------------|
+| Backend  | django              | Django framework                  |
+| Backend  | djangorestframework | API creation                      |
+| Backend  | pandas              | Data manipulation                 |
+| Backend  | numpy               | Numerical operations              |
+| Backend  | matplotlib          | Plotting basic charts             |
+| Backend  | seaborn             | Advanced statistical charts       |
+| Backend  | mplfinance          | Candlestick/finance charts        |
+| Frontend | axios               | API calls                         |
+| Frontend | recharts            | React-based charting library      |
