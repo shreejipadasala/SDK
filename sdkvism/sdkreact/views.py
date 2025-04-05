@@ -12,6 +12,7 @@ from .models import UploadedFile
 from .serializers import FileSerializer
 from mplfinance.original_flavor import candlestick_ohlc
 import matplotlib.dates as mdates
+import numpy as np
 
 uploaded_data = None  
 
@@ -51,6 +52,93 @@ def upload_file(request):
     return Response(serializer.errors, status=400)
 
 @api_view(['POST'])
+def get_recommendations(request):
+    """Analyze data and suggest appropriate chart types"""
+    global uploaded_data
+    
+    if uploaded_data is None:
+        return Response({"error": "No data uploaded yet"}, status=400)
+
+    columns = request.data.get('columns', [])
+    if not columns:
+        return Response({"error": "No columns provided for analysis"}, status=400)
+    
+    try:
+        recommendations = analyze_data_for_recommendations(uploaded_data, columns)
+        return Response({"recommendations": recommendations})
+    except Exception as e:
+        return Response({"error": str(e)}, status=500)
+
+def analyze_data_for_recommendations(df, columns):
+    """Analyze the dataframe to suggest chart types"""
+    recommendations = []
+    
+    col_info = {}
+    for col in columns:
+        if col in df.columns:
+            dtype = str(df[col].dtype)
+            if dtype.startswith('datetime'):
+                col_type = 'datetime'
+            elif dtype in ['int64', 'float64']:
+                col_type = 'numeric'
+                unique_vals = df[col].nunique()
+                is_temporal = False
+                try:
+                    if pd.api.types.is_numeric_dtype(df[col]):
+                        if (df[col] > 1900).all() and (df[col] < 2100).all():
+                            is_temporal = True
+                except:
+                    pass
+            else:
+                col_type = 'categorical'
+                unique_vals = df[col].nunique()
+            
+            col_info[col] = {
+                'type': col_type,
+                'unique_values': unique_vals if col_type != 'datetime' else None,
+                'is_temporal': is_temporal if col_type == 'numeric' else False
+            }
+    
+    num_numeric = sum(1 for info in col_info.values() if info['type'] == 'numeric')
+    num_categorical = sum(1 for info in col_info.values() if info['type'] == 'categorical')
+    num_datetime = sum(1 for info in col_info.values() if info['type'] == 'datetime')
+    
+    if num_datetime >= 1 and num_numeric >= 1:
+        recommendations.append({"type": "line", "confidence": 0.95})
+        recommendations.append({"type": "area", "confidence": 0.85})
+    
+    if num_categorical >= 1 and num_numeric >= 1:
+        recommendations.append({"type": "bar", "confidence": 0.90})
+        if num_categorical == 1 and num_numeric == 1:
+            recommendations.append({"type": "pie", "confidence": 0.75})
+            recommendations.append({"type": "sunburst", "confidence": 0.65})
+    
+    if num_numeric >= 2:
+        recommendations.append({"type": "scatter", "confidence": 0.85})
+    
+    if num_numeric >= 1:
+        recommendations.append({"type": "histogram", "confidence": 0.80})
+        recommendations.append({"type": "box", "confidence": 0.75})
+        recommendations.append({"type": "violin", "confidence": 0.70})
+    
+    if num_numeric >= 4 and num_datetime >= 1:
+        recommendations.append({"type": "stock", "confidence": 0.85})
+    
+    if num_categorical >= 1 and num_numeric == 1:
+        recommendations.append({"type": "funnel", "confidence": 0.70})
+    
+    seen = set()
+    unique_recommendations = []
+    for r in recommendations:
+        if r['type'] not in seen:
+            seen.add(r['type'])
+            unique_recommendations.append(r)
+    
+    unique_recommendations.sort(key=lambda x: x['confidence'], reverse=True)
+    
+    return unique_recommendations[:3]
+
+@api_view(['POST'])
 def generate_graph(request):
     """Generate a graph with multiple graph type support and full color customization"""
     global uploaded_data
@@ -74,7 +162,6 @@ def generate_graph(request):
         if y_col not in uploaded_data.columns:
             return Response({"error": f"Invalid Y-axis column: {y_col}"}, status=400)
 
-    
     try:
         plt.style.use('seaborn-v0_8')
     except:
@@ -88,10 +175,8 @@ def generate_graph(request):
     if color_all and custom_colors:
         colors = [custom_colors[0]] * len(y_columns)
     elif custom_colors and len(custom_colors) >= len(y_columns):
-        # Apply custom colors in order
         colors = custom_colors[:len(y_columns)]
     else:
-        # Default color palette
         colors = sns.color_palette("tab10", n_colors=len(y_columns))
 
     try:
@@ -225,14 +310,12 @@ def generate_graph(request):
             if len(y_columns) < 2:
                 return Response({"error": "Combo chart needs at least 2 Y columns"}, status=400)
             
-            # First series as bars
             plt.bar(uploaded_data[x_column], 
                    uploaded_data[y_columns[0]], 
                    color=colors[0],
                    alpha=0.7,
                    label=y_columns[0])
             
-            # Second series as line
             plt.plot(uploaded_data[x_column], 
                    uploaded_data[y_columns[1]], 
                    color=colors[1],
@@ -240,7 +323,6 @@ def generate_graph(request):
                    linewidth=2,
                    label=y_columns[1])
             
-            # Additional series as lines with different markers
             if len(y_columns) > 2:
                 markers = ['s', '^', 'D', 'v', 'p', '*']
                 for i in range(2, len(y_columns)):
@@ -290,25 +372,21 @@ def generate_graph(request):
                     y_columns[3]: 'last',   
                 }
                 
-                if len(y_columns) > 4:  # If Volume column exists
+                if len(y_columns) > 4:
                     ohlc_dict[y_columns[4]] = 'sum'
                 
                 resampled_df = df.resample(timeframe_map[timeframe]).agg(ohlc_dict).dropna()
                 
-                # Convert to mplfinance format
                 resampled_df['date_num'] = mdates.date2num(resampled_df.index)
                 ohlc_columns = ['date_num'] + y_columns[:4]
                 ohlc = resampled_df[ohlc_columns].values
                 
-                # Create figure
                 plt.close('all')
                 fig, ax = plt.subplots(figsize=(15, 7))
                 
-                # Plot candlestick chart
                 candlestick_ohlc(ax, ohlc, width=0.6/len(timeframe_map[timeframe]), 
                                 colorup='g', colordown='r')
                 
-                # Format chart
                 ax.xaxis_date()
                 ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d %H:%M'))
                 plt.xticks(rotation=45)
@@ -316,7 +394,6 @@ def generate_graph(request):
                 ax.set_xlabel('Date/Time')
                 ax.set_ylabel('Price')
                 
-                # Add volume if available
                 if len(y_columns) > 4:
                     ax2 = ax.twinx()
                     ax2.bar(resampled_df.index, resampled_df[y_columns[4]], 
@@ -329,7 +406,6 @@ def generate_graph(request):
                 plt.close('all')
                 return Response({"error": f"Failed to generate stock chart: {str(e)}"}, status=400)
 
-        # Common formatting for non-stock charts
         if graph_type != 'stock':
             plt.xlabel(x_column, fontsize=12)
             plt.ylabel("Values", fontsize=12)
@@ -351,7 +427,7 @@ def generate_graph(request):
         return Response({
             "graph": encoded_image,
             "graph_type": graph_type,
-            "colors_used": colors[:len(y_columns)]  # Return the colors actually used
+            "colors_used": colors[:len(y_columns)]
         })
 
     except Exception as e:

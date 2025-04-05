@@ -40,7 +40,6 @@ h1 {
 }
 
 .controls-section {
-  flex: 1;
   max-width: 450px;
   text-align: left;
 }
@@ -214,7 +213,6 @@ select {
   font-size: 14px;
 }
 
-/* Reset Button */
 .reset-view-btn {
   margin-left: 10px;
   padding: 5px 10px;
@@ -296,6 +294,79 @@ select {
   background-color: #5a6268;
 }
 
+/* Base styles remain the same as before */
+
+/* AI Recommendations Styles */
+.chart-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.recommendation-btn {
+  background: #f0f7ff;
+  border: 1px solid #4e79a7;
+  color: #4e79a7;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.recommendation-btn:hover {
+  background: #4e79a7;
+  color: white;
+}
+
+
+.recommendations-container {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.recommendations-container h4 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recommendation-item {
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  border-left: 3px solid #4e79a7;
+}
+
+.recommendation-confidence {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.recommendation-description {
+  margin: 5px 0 0;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+/* Responsive adjustments for recommendations */
+@media (max-width: 768px) {
+  .chart-type-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
 
 
 

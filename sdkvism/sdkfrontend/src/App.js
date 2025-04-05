@@ -11,6 +11,8 @@ function App() {
   const [yColumns, setYColumns] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [recommendations, setRecommendations] = useState([]);
+  const [showRecommendations, setShowRecommendations] = useState(false);
   
   // Color selection state
   const [colors, setColors] = useState([]);
@@ -31,6 +33,23 @@ function App() {
     '#3377ff', '#ff33a1', '#a133ff', '#33fff5'
   ], []);
 
+  // All available chart types with descriptions
+  const allChartTypes = [
+    { type: "line", name: "📈 Line Chart", description: "Best for showing trends over time or ordered categories" },
+    { type: "bar", name: "📊 Bar Chart", description: "Ideal for comparing quantities across different categories" },
+    { type: "pie", name: "🥧 Pie Chart", description: "Effective for showing proportions of a whole (use with one Y column)" },
+    { type: "area", name: "🌄 Area Chart", description: "Similar to line charts but emphasizes volume between axis and line" },
+    { type: "scatter", name: "🔵 Scatter Plot", description: "Great for showing relationships between two numerical variables" },
+    { type: "histogram", name: "📊 Histogram", description: "Shows distribution of numerical data" },
+    { type: "box", name: "📦 Box & Whisker", description: "Displays distribution of data through quartiles" },
+    { type: "violin", name: "🎻 Violin Plot", description: "Combines box plot and density trace for distribution visualization" },
+    { type: "funnel", name: "🔽 Funnel Chart", description: "Shows progressive reduction of data through phases" },
+    { type: "sunburst", name: "☀️ Sunburst Chart", description: "Hierarchical data visualization showing proportions" },
+    { type: "waterfall", name: "💧 Waterfall Chart", description: "Illustrates how an initial value is affected by intermediate values" },
+    { type: "combo", name: "🔄 Combo Chart", description: "Combines different chart types (needs at least 2 Y columns)" },
+    { type: "stock", name: "📈 Stock Chart", description: "Specifically for financial data (needs Open, High, Low, Close)" }
+  ];
+
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
   };
@@ -43,6 +62,8 @@ function App() {
     
     setIsLoading(true);
     setErrorMessage("");
+    setRecommendations([]);
+    setShowRecommendations(false);
     
     const formData = new FormData();
     formData.append("file", file);
@@ -59,6 +80,12 @@ function App() {
       const initialYColumns = [response.data.categories[1] || ""];
       setYColumns(initialYColumns);
       setColors(defaultColors.slice(0, initialYColumns.length));
+      
+      // Generate initial graph
+      generateGraph(response.data.categories[0] || "", initialYColumns, "line");
+      
+      // Get AI recommendations
+      getAIRecommendations(response.data.categories);
     } catch (error) {
       console.error("Error uploading file:", error);
       setErrorMessage(error.response?.data?.error || "❌ File upload failed. Please try again.");
@@ -67,26 +94,52 @@ function App() {
     }
   };
 
-  // Update colors when yColumns change
-  useEffect(() => {
-    if (yColumns.length > 0) {
-      setColors(prevColors => {
-        if (applyAll && prevColors.length > 0) {
-          return Array(yColumns.length).fill(prevColors[0]);
-        } else {
-          const newColors = [...prevColors];
-          while (newColors.length < yColumns.length) {
-            newColors.push(defaultColors[newColors.length % defaultColors.length]);
-          }
-          return newColors.slice(0, yColumns.length);
-        }
+  const getAIRecommendations = async (columns) => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/sdkreact/get_recommendations/", {
+        columns: columns
       });
+      
+      // Include all chart types in recommendations, with AI confidence for suggested ones
+      const allRecs = allChartTypes.map(chart => {
+        const aiRec = (response.data.recommendations || []).find(r => r.type === chart.type);
+        return {
+          type: chart.type,
+          name: chart.name,
+          description: chart.description,
+          confidence: aiRec ? aiRec.confidence : 0
+        };
+      });
+      
+      setRecommendations(allRecs);
+    } catch (error) {
+      console.error("Error getting recommendations:", error);
+      // Fallback to all chart types if API fails
+      setRecommendations(allChartTypes.map(chart => ({
+        type: chart.type,
+        name: chart.name,
+        description: chart.description,
+        confidence: 0
+      })));
     }
-  }, [yColumns, applyAll, defaultColors]);
+  };
+
+  const applyRecommendation = async (recommendedType) => {
+    setGraphType(recommendedType);
+    setShowRecommendations(false);
+    await generateGraph(xColumn, yColumns, recommendedType);
+  };
 
   const handleYColumnChange = (e) => {
     const selectedOptions = Array.from(e.target.selectedOptions, (option) => option.value);
     setYColumns(selectedOptions);
+    generateGraph(xColumn, selectedOptions, graphType);
+  };
+
+  const handleXColumnChange = (e) => {
+    const newXColumn = e.target.value;
+    setXColumn(newXColumn);
+    generateGraph(newXColumn, yColumns, graphType);
   };
 
   const handleColorChange = (index, newColor) => {
@@ -100,23 +153,28 @@ function App() {
     });
   };
 
-  const generateGraph = async () => {
-    if (!xColumn || yColumns.length === 0) {
-      setErrorMessage("⚠️ Please select both X and Y axes.");
+  const handleGraphTypeChange = (e) => {
+    const newType = e.target.value;
+    setGraphType(newType);
+    generateGraph(xColumn, yColumns, newType);
+  };
+
+  const generateGraph = async (xCol, yCols, type) => {
+    if (!xCol || yCols.length === 0) {
       return;
     }
     
-    if (['pie', 'sunburst', 'funnel', 'waterfall'].includes(graphType) && yColumns.length > 1) {
-      setErrorMessage(`⚠️ ${graphType.charAt(0).toUpperCase() + graphType.slice(1)} chart supports only one Y column`);
+    if (['pie', 'sunburst', 'funnel', 'waterfall'].includes(type) && yCols.length > 1) {
+      setErrorMessage(`⚠️ ${type.charAt(0).toUpperCase() + type.slice(1)} chart supports only one Y column`);
       return;
     }
     
-    if (graphType === 'combo' && yColumns.length < 2) {
+    if (type === 'combo' && yCols.length < 2) {
       setErrorMessage("⚠️ Combo chart needs at least 2 Y columns");
       return;
     }
     
-    if (graphType === 'stock' && yColumns.length < 4) {
+    if (type === 'stock' && yCols.length < 4) {
       setErrorMessage("⚠️ Stock chart requires Open, High, Low, Close columns");
       return;
     }
@@ -126,9 +184,9 @@ function App() {
 
     try {
       const response = await axios.post("http://127.0.0.1:8000/sdkreact/generate_graph/", {
-        graph_type: graphType,
-        x_column: xColumn,
-        y_columns: yColumns,
+        graph_type: type,
+        x_column: xCol,
+        y_columns: yCols,
         colors: colors,
         color_all: applyAll
       });
@@ -190,6 +248,22 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (yColumns.length > 0) {
+      setColors(prevColors => {
+        if (applyAll && prevColors.length > 0) {
+          return Array(yColumns.length).fill(prevColors[0]);
+        } else {
+          const newColors = [...prevColors];
+          while (newColors.length < yColumns.length) {
+            newColors.push(defaultColors[newColors.length % defaultColors.length]);
+          }
+          return newColors.slice(0, yColumns.length);
+        }
+      });
+    }
+  }, [yColumns, applyAll, defaultColors]);
+
   return (
     <div className="container">
       <h1>📊 DataViz Pro</h1>
@@ -227,7 +301,7 @@ function App() {
                 <label>X-Axis Column:</label>
                 <select 
                   value={xColumn} 
-                  onChange={(e) => setXColumn(e.target.value)}
+                  onChange={handleXColumnChange}
                   className="form-control"
                 >
                   {categories.map((category) => (
@@ -257,25 +331,54 @@ function App() {
               </div>
 
               <div className="form-group">
-                <label>Chart Type:</label>
+                <div className="chart-type-header">
+                  <label>Chart Type:</label>
+                  {recommendations.length > 0 && (
+                    <button 
+                      className="recommendation-btn"
+                      onClick={() => setShowRecommendations(!showRecommendations)}
+                    >
+                      {showRecommendations ? "Hide Recommendations" : "Show All Recommendations"}
+                    </button>
+                  )}
+                </div>
+                
+                {showRecommendations && recommendations.length > 0 && (
+                  <div className="recommendations-container">
+                    <h4>Chart Recommendations for Your Data:</h4>
+                    <div className="recommendations-list">
+                      {recommendations.map((rec, index) => (
+                        <div key={index} className={`recommendation-item ${rec.confidence > 0 ? 'ai-recommended' : ''}`}>
+                          <button
+                            className={`recommendation-btn ${rec.confidence > 0 ? 'apply' : ''}`}
+                            onClick={() => applyRecommendation(rec.type)}
+                          >
+                            {rec.name}
+                            {rec.confidence > 0 && (
+                              <span className="recommendation-confidence">
+                                (AI: {Math.round(rec.confidence * 100)}%)
+                              </span>
+                            )}
+                          </button>
+                          <p className="recommendation-description">
+                            {rec.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
                 <select 
                   value={graphType} 
-                  onChange={(e) => setGraphType(e.target.value)}
+                  onChange={handleGraphTypeChange}
                   className="form-control"
                 >
-                  <option value="line">📈 Line Chart</option>
-                  <option value="bar">📊 Bar Chart</option>
-                  <option value="pie">🥧 Pie Chart</option>
-                  <option value="area">🌄 Area Chart</option>
-                  <option value="scatter">🔵 Scatter Plot</option>
-                  <option value="histogram">📊 Histogram</option>
-                  <option value="box">📦 Box & Whisker</option>
-                  <option value="violin">🎻 Violin Plot</option>
-                  <option value="funnel">🔽 Funnel Chart</option>
-                  <option value="sunburst">☀️ Sunburst Chart</option>
-                  <option value="waterfall">💧 Waterfall Chart</option>
-                  <option value="combo">🔄 Combo Chart</option>
-                  <option value="stock">📈 Stock Chart</option>
+                  {allChartTypes.map(chart => (
+                    <option key={chart.type} value={chart.type}>
+                      {chart.name}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -316,14 +419,6 @@ function App() {
                   ))}
                 </div>
               </div>
-
-              <button 
-                className="generate-btn" 
-                onClick={generateGraph}
-                disabled={isLoading}
-              >
-                {isLoading ? "⏳ Generating..." : "🎨 Generate Chart"}
-              </button>
             </div>
           )}
 
@@ -374,6 +469,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
