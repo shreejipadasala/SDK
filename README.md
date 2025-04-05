@@ -6,18 +6,18 @@
 
 ## 🔧 Features
 
-- 📁 Upload CSV or JSON data files  
-- 📊 Auto-generated graphs using:
+- Upload CSV or JSON data files  
+- Auto-generated graphs using:
   - Matplotlib  
   - Seaborn  
   - mplfinance (candlestick charts)  
-- 📈 Select chart types: bar, line, scatter, histogram, candlestick, etc.  
-- 🔍 Data filtering and customization  
-- 🧠 AI-based chart recommendation (coming soon)  
+- Select chart types: bar, line, scatter, histogram, candlestick, etc.  
+- Data filtering and customization  
+- AI-based chart recommendation (coming soon)  
 
 ---
 
-## ⚙️ Backend Setup (Django)
+## Backend Setup (Django)
 
 ### 1. Check Python Version
 
@@ -29,7 +29,7 @@ python --version
 
 ```bash
 python -m venv venv
-.env\Scriptsctivate
+.env\Scripts\ctivate
 ```
 
 ### 3. Install Django
@@ -83,7 +83,7 @@ python manage.py runserver
 
 ---
 
-## ⚛️ Frontend Setup (React)
+## Frontend Setup (React)
 
 ### 1. Create React App
 
@@ -100,7 +100,7 @@ npm start
 
 ---
 
-## 🗃️ Supabase Database Setup
+## Supabase Database Setup
 
 ### 1. Install PostgreSQL Support
 
@@ -138,7 +138,7 @@ python manage.py runserver
 
 ---
 
-## 🐍 Python Requirements
+## Python Requirements
 
 Install these Python libraries for data handling, visualization, and API creation:
 
@@ -154,7 +154,7 @@ pip install mplfinance
 
 ---
 
-### 📦 `requirements.txt`
+###  `requirements.txt`
 
 ```
 Django>=4.2
@@ -175,7 +175,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📚 Dependencies
+##  Dependencies
 
 | Type     | Library             | Purpose                           |
 |----------|---------------------|-----------------------------------|
