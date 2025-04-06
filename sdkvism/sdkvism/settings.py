@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-rbhuegc6s7muma62qzx+%jl1pu1!qd(nex*h$x-z)pc)-&&gsc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sdk-1.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'sdkvism.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'sdkvism', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,6 +126,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkvism', 'static')]
 
 
 # Default primary key field type
