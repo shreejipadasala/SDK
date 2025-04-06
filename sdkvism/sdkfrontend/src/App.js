@@ -3,6 +3,9 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
+  // API Base URL configuration
+  const API_BASE = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000';
+
   const [file, setFile] = useState(null);
   const [graphType, setGraphType] = useState("line");
   const [graphImage, setGraphImage] = useState("");
@@ -69,7 +72,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/sdkreact/upload_file/", formData, {
+      const response = await axios.post(`${API_BASE}/sdkreact/upload_file/`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -96,7 +99,7 @@ function App() {
 
   const getAIRecommendations = async (columns) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/sdkreact/get_recommendations/", {
+      const response = await axios.post(`${API_BASE}/sdkreact/get_recommendations/`, {
         columns: columns
       });
       
@@ -183,7 +186,7 @@ function App() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post("http://127.0.0.1:8000/sdkreact/generate_graph/", {
+      const response = await axios.post(`${API_BASE}/sdkreact/generate_graph/`, {
         graph_type: type,
         x_column: xCol,
         y_columns: yCols,
