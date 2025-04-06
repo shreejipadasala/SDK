@@ -19,5 +19,6 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sdkreact/',include('sdkreact.urls'))
+    path('sdkreact/',include('sdkreact.urls')),
+    path('', lambda request: HttpResponse("Welcome to the homepage!"))
 ]
