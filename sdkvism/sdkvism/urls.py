@@ -21,5 +21,7 @@ from django.http import HttpResponse
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sdkreact/',include('sdkreact.urls')),
-    path('', lambda request: HttpResponse("Welcome to the homepage!"))
+    path('', TemplateView.as_view(template_name='index.html')),  # 👈 assumes index.html exists
 ]
+]
+
