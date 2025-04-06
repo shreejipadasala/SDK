@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sdkreact-app
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn your_project_name.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: sdkvism.settings
+      - key: 'django-insecure-rbhuegc6s7muma62qzx+%jl1pu1!qd(nex*h$x-z)pc)-&&gsc' 
+        value: your_secret_key_here
+      - key: DEBUG
+        value: "False"
