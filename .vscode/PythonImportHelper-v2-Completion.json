@@ -1,0 +1,645 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "admin",
+        "importPath": "django.contrib",
+        "description": "django.contrib",
+        "isExtraImport": true,
+        "detail": "django.contrib",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
+        "isExtraImport": true,
+        "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "api_view",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "parser_classes",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "MultiPartParser",
+        "importPath": "rest_framework.parsers",
+        "description": "rest_framework.parsers",
+        "isExtraImport": true,
+        "detail": "rest_framework.parsers",
+        "documentation": {}
+    },
+    {
+        "label": "FormParser",
+        "importPath": "rest_framework.parsers",
+        "description": "rest_framework.parsers",
+        "isExtraImport": true,
+        "detail": "rest_framework.parsers",
+        "documentation": {}
+    },
+    {
+        "label": "candlestick_ohlc",
+        "importPath": "mplfinance.original_flavor",
+        "description": "mplfinance.original_flavor",
+        "isExtraImport": true,
+        "detail": "mplfinance.original_flavor",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.dates",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.dates",
+        "description": "matplotlib.dates",
+        "detail": "matplotlib.dates",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "get_asgi_application",
+        "importPath": "django.core.asgi",
+        "description": "django.core.asgi",
+        "isExtraImport": true,
+        "detail": "django.core.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponse",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "TemplateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "get_wsgi_application",
+        "importPath": "django.core.wsgi",
+        "description": "django.core.wsgi",
+        "isExtraImport": true,
+        "detail": "django.core.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "description": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
+        "detail": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "description": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
+        "detail": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "description": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "description": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "sdkvism.sdkfrontend.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "sdkvism.sdkreact.migrations.0001_initial",
+        "description": "sdkvism.sdkreact.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='UploadedFile',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('file', models.FileField(upload_to='uploads/')),",
+        "detail": "sdkvism.sdkreact.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "UplodAdmin",
+        "kind": 6,
+        "importPath": "sdkvism.sdkreact.admin",
+        "description": "sdkvism.sdkreact.admin",
+        "peekOfCode": "class UplodAdmin(admin.ModelAdmin):\n    list_display = ['id','file','uploaded_at']",
+        "detail": "sdkvism.sdkreact.admin",
+        "documentation": {}
+    },
+    {
+        "label": "SdkreactConfig",
+        "kind": 6,
+        "importPath": "sdkvism.sdkreact.apps",
+        "description": "sdkvism.sdkreact.apps",
+        "peekOfCode": "class SdkreactConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'sdkreact'",
+        "detail": "sdkvism.sdkreact.apps",
+        "documentation": {}
+    },
+    {
+        "label": "UploadedFile",
+        "kind": 6,
+        "importPath": "sdkvism.sdkreact.models",
+        "description": "sdkvism.sdkreact.models",
+        "peekOfCode": "class UploadedFile(models.Model):\n    file = models.FileField(upload_to='uploads/')\n    uploaded_at = models.DateTimeField(auto_now_add=True)",
+        "detail": "sdkvism.sdkreact.models",
+        "documentation": {}
+    },
+    {
+        "label": "FileSerializer",
+        "kind": 6,
+        "importPath": "sdkvism.sdkreact.serializers",
+        "description": "sdkvism.sdkreact.serializers",
+        "peekOfCode": "class FileSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = UploadedFile\n        fields = '__all__'",
+        "detail": "sdkvism.sdkreact.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "sdkvism.sdkreact.urls",
+        "description": "sdkvism.sdkreact.urls",
+        "peekOfCode": "urlpatterns = [\n    path('upload_file/', upload_file, name='upload_file'),\n    path('generate_graph/', generate_graph, name='generate_graph'),\n    path('get_recommendations/', views.get_recommendations, name='get_recommendations')\n]",
+        "detail": "sdkvism.sdkreact.urls",
+        "documentation": {}
+    },
+    {
+        "label": "upload_file",
+        "kind": 2,
+        "importPath": "sdkvism.sdkreact.views",
+        "description": "sdkvism.sdkreact.views",
+        "peekOfCode": "def upload_file(request):\n    \"\"\"Handle file upload and return available categories\"\"\"\n    global uploaded_data\n    if 'file' not in request.data:\n        return Response({\"error\": \"No file provided\"}, status=400)\n    serializer = FileSerializer(data=request.data)\n    if serializer.is_valid():\n        serializer.save()\n        file_instance = serializer.instance\n        file_path = file_instance.file.path",
+        "detail": "sdkvism.sdkreact.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_recommendations",
+        "kind": 2,
+        "importPath": "sdkvism.sdkreact.views",
+        "description": "sdkvism.sdkreact.views",
+        "peekOfCode": "def get_recommendations(request):\n    \"\"\"Analyze data and suggest appropriate chart types\"\"\"\n    global uploaded_data\n    if uploaded_data is None:\n        return Response({\"error\": \"No data uploaded yet\"}, status=400)\n    columns = request.data.get('columns', [])\n    if not columns:\n        return Response({\"error\": \"No columns provided for analysis\"}, status=400)\n    try:\n        recommendations = analyze_data_for_recommendations(uploaded_data, columns)",
+        "detail": "sdkvism.sdkreact.views",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_data_for_recommendations",
+        "kind": 2,
+        "importPath": "sdkvism.sdkreact.views",
+        "description": "sdkvism.sdkreact.views",
+        "peekOfCode": "def analyze_data_for_recommendations(df, columns):\n    \"\"\"Analyze the dataframe to suggest chart types\"\"\"\n    recommendations = []\n    col_info = {}\n    for col in columns:\n        if col in df.columns:\n            dtype = str(df[col].dtype)\n            if dtype.startswith('datetime'):\n                col_type = 'datetime'\n            elif dtype in ['int64', 'float64']:",
+        "detail": "sdkvism.sdkreact.views",
+        "documentation": {}
+    },
+    {
+        "label": "generate_graph",
+        "kind": 2,
+        "importPath": "sdkvism.sdkreact.views",
+        "description": "sdkvism.sdkreact.views",
+        "peekOfCode": "def generate_graph(request):\n    \"\"\"Generate a graph with multiple graph type support and full color customization\"\"\"\n    global uploaded_data\n    if uploaded_data is None:\n        return Response({\"error\": \"No data uploaded yet\"}, status=400)\n    x_column = request.data.get('x_column')\n    y_columns = request.data.get('y_columns', [])\n    graph_type = request.data.get('graph_type', 'line')\n    custom_colors = request.data.get('colors', [])\n    color_all = request.data.get('color_all', False) ",
+        "detail": "sdkvism.sdkreact.views",
+        "documentation": {}
+    },
+    {
+        "label": "uploaded_data",
+        "kind": 5,
+        "importPath": "sdkvism.sdkreact.views",
+        "description": "sdkvism.sdkreact.views",
+        "peekOfCode": "uploaded_data = None  \n@api_view(['POST'])\n@parser_classes([MultiPartParser, FormParser])\ndef upload_file(request):\n    \"\"\"Handle file upload and return available categories\"\"\"\n    global uploaded_data\n    if 'file' not in request.data:\n        return Response({\"error\": \"No file provided\"}, status=400)\n    serializer = FileSerializer(data=request.data)\n    if serializer.is_valid():",
+        "detail": "sdkvism.sdkreact.views",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.asgi",
+        "description": "sdkvism.sdkvism.asgi",
+        "peekOfCode": "application = get_asgi_application()",
+        "detail": "sdkvism.sdkvism.asgi",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-rbhuegc6s7muma62qzx+%jl1pu1!qd(nex*h$x-z)pc)-&&gsc'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['sdk-1.onrender.com', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SECRET_KEY",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "SECRET_KEY = 'django-insecure-rbhuegc6s7muma62qzx+%jl1pu1!qd(nex*h$x-z)pc)-&&gsc'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = ['sdk-1.onrender.com', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEBUG",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = ['sdk-1.onrender.com', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_HOSTS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "ALLOWED_HOSTS = ['sdk-1.onrender.com', 'localhost', '127.0.0.1']\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "INSTALLED_APPS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'sdkreact',\n    'corsheaders',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MIDDLEWARE",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "MIDDLEWARE = [\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n    'django.middleware.security.SecurityMiddleware',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOW_ALL_ORIGINS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "CORS_ALLOW_ALL_ORIGINS = True \nROOT_URLCONF = 'sdkvism.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'sdkvism', 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "ROOT_URLCONF",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "ROOT_URLCONF = 'sdkvism.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'sdkvism', 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TEMPLATES",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'sdkvism', 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "WSGI_APPLICATION",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "WSGI_APPLICATION = 'sdkvism.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASES",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "AUTH_PASSWORD_VALIDATORS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "LANGUAGE_CODE",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TIME_ZONE",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_I18N",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "USE_TZ",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ALLOWED_ORIGINS = [",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_URL",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n]\nREST_FRAMEWORK = {",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "STATIC_ROOT = BASE_DIR / 'staticfiles'\nSTATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n]\nREST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_DIRS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "STATICFILES_DIRS = [os.path.join(BASE_DIR, 'sdkfrontend', 'build', 'static')]\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n]\nREST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)\n}",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_AUTO_FIELD",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nCORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n]\nREST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)\n}",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    \"http://localhost:3000\",\n]\nREST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)\n}",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.settings",
+        "description": "sdkvism.sdkvism.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)\n}",
+        "detail": "sdkvism.sdkvism.settings",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.urls",
+        "description": "sdkvism.sdkvism.urls",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('sdkreact/',include('sdkreact.urls')),\n    path('', TemplateView.as_view(template_name='index.html')),  # 👈 assumes index.html exists\n]",
+        "detail": "sdkvism.sdkvism.urls",
+        "documentation": {}
+    },
+    {
+        "label": "application",
+        "kind": 5,
+        "importPath": "sdkvism.sdkvism.wsgi",
+        "description": "sdkvism.sdkvism.wsgi",
+        "peekOfCode": "application = get_wsgi_application()",
+        "detail": "sdkvism.sdkvism.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "sdkvism.manage",
+        "description": "sdkvism.manage",
+        "peekOfCode": "def main():\n    \"\"\"Run administrative tasks.\"\"\"\n    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sdkvism.settings')\n    try:\n        from django.core.management import execute_from_command_line\n    except ImportError as exc:\n        raise ImportError(\n            \"Couldn't import Django. Are you sure it's installed and \"\n            \"available on your PYTHONPATH environment variable? Did you \"\n            \"forget to activate a virtual environment?\"",
+        "detail": "sdkvism.manage",
+        "documentation": {}
+    }
+]
