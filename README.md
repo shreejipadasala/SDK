@@ -188,3 +188,10 @@ pip install -r requirements.txt
 | Backend  | mplfinance          | Candlestick/finance charts        |
 | Frontend | axios               | API calls                         |
 | Frontend | recharts            | React-based charting library      |
+
+##Images
+
+![image](https://github.com/user-attachments/assets/9ff68646-68fc-458c-b3a9-a3c7242542ba)
+![image](https://github.com/user-attachments/assets/a5435d17-6c88-44e3-9c34-48e51d0ea793)
+
+
