@@ -17,18 +17,15 @@ function App() {
   const [recommendations, setRecommendations] = useState([]);
   const [showRecommendations, setShowRecommendations] = useState(false);
   
-  // Color selection state
   const [colors, setColors] = useState([]);
   const [applyAll, setApplyAll] = useState(false);
   
-  // Zoom and pan state
   const [scale, setScale] = useState(1);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const chartContainerRef = useRef(null);
 
-  // Memoized default color palette
   const defaultColors = useMemo(() => [
     '#4e79a7', '#f28e2b', '#e15759', '#76b7b2', 
     '#59a14f', '#edc948', '#b07aa1', '#ff9da7', 
@@ -36,7 +33,6 @@ function App() {
     '#3377ff', '#ff33a1', '#a133ff', '#33fff5'
   ], []);
 
-  // All available chart types with descriptions
   const allChartTypes = [
     { type: "line", name: "📈 Line Chart", description: "Best for showing trends over time or ordered categories" },
     { type: "bar", name: "📊 Bar Chart", description: "Ideal for comparing quantities across different categories" },
