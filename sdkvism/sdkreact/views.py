@@ -14,16 +14,22 @@ from mplfinance.original_flavor import candlestick_ohlc
 import matplotlib.dates as mdates
 import numpy as np
 from django.views.generic import TemplateView
+from django.views.generic import View
+from django.http import HttpResponse
+import os
 
 uploaded_data = None  
 
-class ReactAppView(TemplateView):
-    template_name = 'index.html'
-    
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-    
+class FrontendAppView(View):
+    def get(self, request):
+        try:
+            with open(os.path.join(os.path.dirname(__file__), '../sdkfrontend/build/index.html')) as f:
+                return HttpResponse(f.read())
+        except FileNotFoundError:
+            return HttpResponse(
+                "index.html not found. Did you run 'npm run build'?", status=501,
+            )
+            
 @api_view(['POST'])
 @parser_classes([MultiPartParser, FormParser])
 def upload_file(request):

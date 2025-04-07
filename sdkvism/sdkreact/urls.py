@@ -4,14 +4,14 @@ from . import views
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import ReactAppView
+from .views import FrontendAppView
 from django.urls import path,re_path
 
 urlpatterns = [
     path('upload_file/', upload_file, name='upload_file'),
     path('generate_graph/', generate_graph, name='generate_graph'),
     path('get_recommendations/', views.get_recommendations, name='get_recommendations'),
-    path('', ReactAppView.as_view(), name='react_app'),
+    path('', FrontendAppView.as_view()),
     re_path(r'^.*', TemplateView.as_view(template_name='index.html')),
 ]
 if settings.DEBUG:
